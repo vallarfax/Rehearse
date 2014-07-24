@@ -16,7 +16,7 @@ fi
 
 
 clean() {
-	rm base/selenium-server-standalone.jar chrome/chrome_signing_key.pub chrome/chromedriver chrome/chromedriver.zip
+	rm docker_files/base/selenium-server-standalone.jar docker_files/chrome/chrome_signing_key.pub docker_files/chrome/chromedriver docker_files/chrome/chromedriver.zip
 }
 
 
@@ -36,6 +36,7 @@ clean_images() {
 
 
 download() {
+	cd docker_files
 	cd base
 	if [ ! -e selenium-server-standalone.jar ]; then
 		curl -o selenium-server-standalone.jar ${SELENIUM_URL}
@@ -56,10 +57,12 @@ download() {
 		unzip chromedriver.zip
 	fi
 	cd ..
+	cd ..
 }
 
 
 build() {
+	cd docker_files
 	for d in "${TARGETS[@]}"; do
 		(
 			cd "${d}"
@@ -67,6 +70,7 @@ build() {
 			cd ..
 		)
 	done
+	cd ..
 }
 
 

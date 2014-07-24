@@ -14,7 +14,7 @@ If you'd like to build the images within Vagrant:
 
 Inside the VM run:
 
-	cd /vagrant/docker_files
+	cd /vagrant
 	./build.sh
 
 
