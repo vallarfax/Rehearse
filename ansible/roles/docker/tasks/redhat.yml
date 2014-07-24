@@ -1,0 +1,11 @@
+---
+
+- name: Install EPEL repository
+  yum: name=http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm state=present
+
+- name: Install Docker package
+  yum: name=docker-io state=latest enablerepo=epel
+  notify: "Start Docker"
+
+- name: Install pip
+  yum: name=python-pip state=present

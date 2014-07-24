@@ -1,0 +1,7 @@
+---
+- hosts: all
+  sudo: yes
+  vars:
+    deploy_user: vagrant
+  roles:
+    - docker
