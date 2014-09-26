@@ -14,7 +14,7 @@ def start(args):
 def stop(args):
 	for browser in args.browser:
 		call("sudo docker ps --no-trunc | grep '{0}' | awk '{{print $1}}' | sudo xargs --no-run-if-empty docker stop".format(browser), shell=True)
-	call("sudo docker ps -a -q --no-trunc | grep '{0}' | awk '{{print $1}}' | sudo xargs --no-run-if-empty docker rm".format(browser), shell=True)
+		call("sudo docker ps -a --no-trunc | grep '{0}' | awk '{{print $1}}' | sudo xargs --no-run-if-empty docker rm".format(browser), shell=True)
 
 
 def main():
